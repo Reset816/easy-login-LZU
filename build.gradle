@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('com.squareup.okhttp3:okhttp:4.6.0')
+    compile 'com.alibaba:fastjson:1.2.68'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
