@@ -1,4 +1,5 @@
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -75,10 +76,10 @@ public class main {
                 //test
                 //StringofgetChallenge = "{\"challenge\":\"4242cd7850e9ad2dabe6c9b3ae14994a9f50c1a9305f7f4b0fe32c3acfad037e\",\"client_ip\":\"172.23.37.242\",\"ecode\":0,\"error\":\"ok\",\"error_msg\":\"\",\"expire\":\"51\",\"online_ip\":\"172.23.37.242\",\"res\":\"ok\",\"srun_ver\":\"SRunCGIAuthIntfSvr V1.18 B20200522\",\"st\":1590846311}";
                 //
-                JSONObject JSONofgetChallenge = JSONObject
-                        .parseObject(StringofgetChallenge);
-                data.ip = JSONofgetChallenge.getString("client_ip");
-                data.token = JSONofgetChallenge.getString("challenge");
+                JsonObject convertedObject = new Gson().fromJson(StringofgetChallenge, JsonObject.class);
+
+                data.ip = convertedObject.get("client_ip").getAsString();
+                data.token = convertedObject.get("challenge").getAsString();
                 data.acid = "2";
 
 //                构造i 这样构建出来的json是乱序的，不可行
