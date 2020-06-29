@@ -80,6 +80,7 @@ public class main {
 
                 data.ip = convertedObject.get("client_ip").getAsString();
                 data.token = convertedObject.get("challenge").getAsString();
+                //Attention that some AP's acid is 1
                 data.acid = "2";
 
 //                构造i 这样构建出来的json是乱序的，不可行
@@ -169,9 +170,10 @@ public class main {
     public static void main(String[] args) {
         String url = "10.10.0.166";
         params data = new params();
-        //Type in your username, for example: data.username = "tany18";
-        //Type in your password, for example: data.password = "test";
-        //Type in your ip, for example:  data.ip = "172.23.91.182";
+        //change the data.username, data.password, data.ip into your own.
+        data.username = "tany18";
+        data.password = "test";
+        data.ip = "172.23.91.182";
 
         //http://10.10.0.166/cgi-bin/get_challenge?callback=jQuery1124004853879047803211_1590655764103&username=tany18&ip=172.23.37.242&_=1590655764105
         //http://10.10.0.166/cgi-bin/srun_portal?callback=jQuery1124004853879047803211_1590655764103&action=login&username=tany18&password=%7BMD5%7D09316a2c25328a1c0b14027d2065c243&ac_id=2&ip=172.23.37.242&chksum=5e0ee0e90001e5a13ccfda630affeab5c079291e&info=%7BSRBX1%7DwRu2XMBCbBhQE5%2Bk%2B6p9wW1wkVTCzfbG%2FDMozoDFfLzljVJemHy1HWr6VpGrahjPzu%2FqlsPSld%2Fp1g9SbOJKq0AQHMnzoVY2VxcEYk%2B0XpbE0hZksEa7pcsZw4uGDFD2CbR6T1gEYvak2QnW&n=200&type=1&os=Windows+10&name=Windows&double_stack=0&_=1590655764106
