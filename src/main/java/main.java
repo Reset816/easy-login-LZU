@@ -3,6 +3,7 @@ import com.google.gson.JsonObject;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -170,10 +171,17 @@ public class main {
     public static void main(String[] args) {
         String url = "10.10.0.166";
         params data = new params();
-        //change the data.username, data.password, data.ip into your own.
-        data.username = "tany18";
-        data.password = "test";
-        data.ip = "172.23.91.182";
+//        //change the data.username, data.password, data.ip into your own.
+//        data.username = "tany18";
+//        data.password = "test";
+//        data.ip = "172.23.91.182";
+        Scanner in = new Scanner(System.in);
+        System.out.println("Type in your username:");
+        data.username = in.nextLine();
+        System.out.println("Type in your password:");
+        data.password = in.nextLine();
+        System.out.println("Type in your local ip:");
+        data.ip = in.nextLine();
 
         //http://10.10.0.166/cgi-bin/get_challenge?callback=jQuery1124004853879047803211_1590655764103&username=tany18&ip=172.23.37.242&_=1590655764105
         //http://10.10.0.166/cgi-bin/srun_portal?callback=jQuery1124004853879047803211_1590655764103&action=login&username=tany18&password=%7BMD5%7D09316a2c25328a1c0b14027d2065c243&ac_id=2&ip=172.23.37.242&chksum=5e0ee0e90001e5a13ccfda630affeab5c079291e&info=%7BSRBX1%7DwRu2XMBCbBhQE5%2Bk%2B6p9wW1wkVTCzfbG%2FDMozoDFfLzljVJemHy1HWr6VpGrahjPzu%2FqlsPSld%2Fp1g9SbOJKq0AQHMnzoVY2VxcEYk%2B0XpbE0hZksEa7pcsZw4uGDFD2CbR6T1gEYvak2QnW&n=200&type=1&os=Windows+10&name=Windows&double_stack=0&_=1590655764106
